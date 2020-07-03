@@ -173,6 +173,11 @@ public final class ViewfinderView extends View
     @Override
     public void onDraw(Canvas canvas)
     {
+
+        if(CameraManager.get().get().isShowScanRect == 0){
+            return;
+        }
+
         Rect frame = CameraManager.get().getFramingRect();
         if (frame == null)
         {
@@ -184,10 +189,7 @@ public final class ViewfinderView extends View
             isFirst = true;
             slideTop = frame.top + CORNER_WIDTH;
             slideBottom = frame.bottom - CORNER_WIDTH;
-
             SPEEN_DISTANCE= (slideBottom-slideTop)/((scanTime/16)+2);
-
-
         }
 
         int width = canvas.getWidth();
@@ -214,12 +216,7 @@ public final class ViewfinderView extends View
             // Draw a two pixel solid black border inside the framing rect
             //画框架
             paint.setColor(frameColor);
-            //      canvas.drawRect(frame.left, frame.top, frame.right + 1, frame.top + 2, paint);
-            //      canvas.drawRect(frame.left, frame.top + 2, frame.left + 2, frame.bottom - 1, paint);
-            //      canvas.drawRect(frame.right - 1, frame.top, frame.right + 1, frame.bottom - 1, paint);
-            //      canvas.drawRect(frame.left, frame.bottom - 1, frame.right + 1, frame.bottom + 1, paint);
-            //public void drawRect (float left, float top, float right, float bottom, Paint paint) 
-            //自己画（扫描框边上的角，共8个部分）
+
             canvas.drawRect(frame.left - CORNER_WIDTH/2 , frame.top
                     - CORNER_WIDTH /2, frame.left + ScreenRate, frame.top
                     + CORNER_WIDTH /2, paint);//左上角横线

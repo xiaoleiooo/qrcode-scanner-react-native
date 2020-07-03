@@ -24,6 +24,8 @@ RCT_EXPORT_VIEW_PROPERTY(scannerLineInterval, NSInteger)
 
 RCT_EXPORT_VIEW_PROPERTY(scannerRectCornerColor, NSString)
 
+RCT_EXPORT_VIEW_PROPERTY(isShowScanRect, NSInteger)
+
 RCT_EXPORT_VIEW_PROPERTY(onBarCodeRead, RCTBubblingEventBlock)
 
 RCT_CUSTOM_VIEW_PROPERTY(barCodeTypes, NSArray, RCTBarcode) {
@@ -119,7 +121,7 @@ RCT_EXPORT_METHOD(startSession) {
             
             AVCaptureMetadataOutput *metadataOutput = [[AVCaptureMetadataOutput alloc] init];
             self.metadataOutput = metadataOutput;
-        
+//            NSLog(@"self.barCodeTypes = %@", self.barCodeTypes);
             if ([self.session canAddOutput:self.metadataOutput]) {
                 [self.metadataOutput setMetadataObjectsDelegate:self queue:self.sessionQueue];
                 [self.session addOutput:self.metadataOutput];

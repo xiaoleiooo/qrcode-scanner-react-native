@@ -17,9 +17,9 @@
 @property (nonatomic, assign) NSInteger scannerRectLeft;
 @property (nonatomic, assign) NSInteger scannerLineInterval;
 @property (nonatomic, copy) NSString *scannerRectCornerColor;
+@property (nonatomic, assign) NSInteger isShowScanRect;
 
 - (id)initWithManager:(RCTBarcodeManager*)manager;
 - (void)moveUpAndDownLine;
 - (void)createTimer;
-
 @end

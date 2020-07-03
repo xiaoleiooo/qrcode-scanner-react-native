@@ -82,6 +82,7 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
     private int MAX_FRAME_WIDTH;
     //扫描框高
     private int MAX_FRAME_HEIGHT;
+    private int isShowScanRect;//1show 0unshow
     private float density;
     /**
      * s扫码横线的移动时间
@@ -184,6 +185,7 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
         CameraManager.get().MIN_FRAME_HEIGHT = MAX_FRAME_HEIGHT;
         CameraManager.get().MAX_FRAME_WIDTH = MAX_FRAME_WIDTH;
         CameraManager.get().MAX_FRAME_HEIGHT = MAX_FRAME_HEIGHT;
+        CameraManager.get().isShowScanRect = isShowScanRect;
         CameraManager.get().setFocusTime(focusTime);
 
     }
@@ -617,6 +619,17 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
 
         initProgressBar();
     }
+
+    public void setSHOW_SCANRECT(int isShowScanRect) {
+        this.isShowScanRect = isShowScanRect;
+        CameraManager.get().framingRect = null;
+        if (viewfinderView != null) {
+            viewfinderView.invalidate();
+        }
+        initProgressBar();
+    }
+
+
 
 
     @Override

@@ -32,6 +32,7 @@ export default class Barcode extends Component {
         scannerRectLeft: 0,
         scannerLineInterval: 3000,
         scannerRectCornerColor: `#09BB0D`,
+        isShowScanRect:1
     }
 
     static propTypes = {
@@ -44,13 +45,14 @@ export default class Barcode extends Component {
         scannerRectLeft: PropTypes.number,
         scannerLineInterval: PropTypes.number,
         scannerRectCornerColor: PropTypes.string,
+        isShowScanRect:PropTypes.number
     }
 
     render() {
         return (
-            <NativeBarCode
-                {...this.props}
-            />
+          <NativeBarCode
+            {...this.props}
+          />
         )
     }
 

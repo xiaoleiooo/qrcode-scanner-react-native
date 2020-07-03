@@ -51,6 +51,7 @@ public final class CameraManager {
   public static  int MAX_FRAME_HEIGHT;
   public static int x;
   public static int y;
+  public static int isShowScanRect;
 
   private static CameraManager cameraManager;
   private int focusTime=500;
@@ -265,7 +266,7 @@ private final Context context;
       int topOffset = (y - height) / 2;
      // int topOffset = (screenResolution.y - height)/3;
       framingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
-//      Log.i(TAG, "Camera_width: " + width+",Camera_height:"+height);
+//      Log.i(TAG, "Camera_width: " + width+",Camera_height:"+height   + "  framingRect: "+framingRect.toString());
     }
     return framingRect;
   }

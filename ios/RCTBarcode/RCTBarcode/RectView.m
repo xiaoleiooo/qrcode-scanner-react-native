@@ -48,6 +48,7 @@
     
 //    UIColor *cornerLineColor = [UIColor redColor];
 //    NSLog(@"self.scannerRectCornerColor=%@", self.scannerRectCornerColor);
+//    NSLog(@"addCornerLineWithContext rect=%@", NSStringFromCGRect(rect));
     UIColor *cornerLineColor = [UIColor colorWithHexString:self.scannerRectCornerColor];
     
     //画四个边角

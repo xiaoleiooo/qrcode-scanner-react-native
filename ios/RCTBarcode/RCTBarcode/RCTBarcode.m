@@ -28,9 +28,7 @@
 
 - (void)drawRect:(CGRect)rect {
 //    NSLog(@"drawRect--------------");
-
     [super drawRect:rect];
-    
     [self updateLayout];
 }
 
@@ -59,7 +57,11 @@
 
 - (void)updateLayout{
     
-//    NSLog(@"updateLayout...");
+//    NSLog(@"updateLayout...scannerRectTop:%d  self.isShowScanRect:%d",self.scannerRectTop,self.isShowScanRect);
+    
+    if(self.isShowScanRect == NO){
+        return;
+    }
     
     int scannerRectWidth = self.scannerRectWidth;//300;
     int scannerRectHeight = self.scannerRectHeight;//300;
@@ -68,6 +70,9 @@
     //中间的矩形框
     self.scannerRect = CGRectMake( (cameraRect.size.width - scannerRectWidth) / 2, (cameraRect.size.height - scannerRectHeight) / 2, scannerRectWidth, scannerRectHeight);
 
+    
+    self.scannerRect = CGRectMake(self.scannerRectLeft, self.scannerRectTop, self.scannerRectWidth, self.scannerRectHeight);
+    
     RectView *view = [[RectView alloc] initWithScannerRect:self.scannerRect frame:self.bounds scannerRectCornerColor:self.scannerRectCornerColor];
 //    RectView *view = [[RectView alloc] initWithFrame:self.bounds];
     

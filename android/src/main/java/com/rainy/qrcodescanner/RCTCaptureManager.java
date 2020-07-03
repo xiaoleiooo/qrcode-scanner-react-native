@@ -85,6 +85,11 @@ public class RCTCaptureManager extends ViewGroupManager<CaptureView> {
         view.setMAX_FRAME_HEIGHT((int) (FRAME_HEIGHT * density + 0.5f));
     }
 
+    @ReactProp(name = "isShowScanRect", defaultInt = 1)
+    public void setSHOW_SCANRECT(CaptureView view, int ISSHOW) {
+        view.setSHOW_SCANRECT(ISSHOW);
+    }
+
 /*    @ReactProp(name = "text")
     public void setText(CaptureView view, String text) {
         view.setText(text);
